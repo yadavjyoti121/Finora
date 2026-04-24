@@ -55,12 +55,12 @@ app.use("/api/v1", transactionRoutes);
 app.use("/api/auth", userRoutes);
 app.use("/api/chatbot", chatbotRoutes);
 
-app.get("/", (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "Finora backend is running",
-  });
-});
+// app.get("/", (req, res) => {
+//   res.status(200).json({
+//     success: true,
+//     message: "Finora backend is running",
+//   });
+// });
 
 app.head("/", (req, res) => {
   res.status(200).end();
@@ -69,9 +69,9 @@ app.head("/", (req, res) => {
 if (fs.existsSync(frontendIndexPath)) {
   app.use(express.static(frontendBuildPath));
 
-  app.get("*", (req, res) => {
-    res.sendFile(frontendIndexPath);
-  });
+  // app.get("*", (req, res) => {
+  //   res.sendFile(frontendIndexPath);
+  // });
 }
 
 app.listen(port, () => {
